@@ -8,7 +8,8 @@ exports.config = {
   ],
   suites: {
     ValetParkig: './Tests/valet-parking/valet-parking.js',
-    ShortParkig: './Tests/short-parking/short-parking.js'
+    ShortParkig: './Tests/short-parking/short-parking.js',
+    EconomyParkig: './Tests/economy-parking/economy-parking.js'
   },
   
   multiCapabilities: [{
@@ -16,6 +17,8 @@ exports.config = {
     trustAllSSLCertificates: true,
     acceptInsecureCerts: true,
     ACCEPT_SSL_CERTS: true,
+    shardTestFiles: true,
+    maxInstances: 1,
     chromeOptions: {
       args: [ 
         //'incognito',

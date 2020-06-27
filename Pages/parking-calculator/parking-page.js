@@ -30,9 +30,7 @@ var ParkingPage = function () {
 		startCalendar.click().then(function () {
             browser.getAllWindowHandles().then(function (handles) {
                 newWindowHandle = handles[1]; // this is your new window
-                browser.switchTo().window(newWindowHandle).then(function () {
-                    
-                });
+                browser.switchTo().window(newWindowHandle);
             });
         });
 	}

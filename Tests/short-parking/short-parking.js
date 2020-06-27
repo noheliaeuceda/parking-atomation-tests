@@ -49,7 +49,7 @@ describe('Protractor Demo App', function () {
 			ParkingPage.typeStartDate('07/01/2020')
 			ParkingPage.typeStartHour('5:00')
 			ParkingPage.startHour()
-			ParkingPage.typeEndDate('07/01/2020')
+			ParkingPage.typeEndDate('07/02/2020')
 			ParkingPage.typeEndHour('5:30')
 			ParkingPage.endHour()
 			ParkingPage.calculateClick()
