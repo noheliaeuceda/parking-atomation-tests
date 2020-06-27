@@ -1,13 +1,8 @@
-const Reporter = require('jasmine-2-testrail')
-const reporter = new Reporter({
-});
- 
-
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-
+  specs: ['todo-spec.js'],
   suites: {
-
+    LoginOC: ['./Tests/LoginOC/Login_LCX_HP.js'],
   },
   onPrepare: () => {
   },
@@ -21,8 +16,4 @@ exports.config = {
       args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
     }*/ 
   }],
-  jasmineNodeOpts: {
-    showColors: true, // Use colors in the command line report.
-  }
-  
-}
+};
