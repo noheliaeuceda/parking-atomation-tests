@@ -9,7 +9,7 @@ var CalendarPage = function () {
 	this.scrollDown = function (element) {
 		browser.actions().mouseMove(element).perform();
 	}
-	this.chooseParking = function (value) {
+	this.clickStartDate = function (value) {
         var startDate = element(by.linkText(value));
 		startDate.click().then(function () {
             browser.getAllWindowHandles().then(function (handles) {

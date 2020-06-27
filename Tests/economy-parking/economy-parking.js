@@ -17,8 +17,8 @@ describe('Protractor Demo App', function () {
 	it('Given as a user, When the user enters the date in the date field AND the user spends two hours in Economy parking, THEN parking cost equals to $4'
 	, async (done) => {
             ParkingPage.chooseParking('Economy')
-            ParkingPage.selectStartDate();
-			CalendarPage.typeStartDate(25)
+            ParkingPage.selectStartDate()
+			CalendarPage.clickStartDate(25)
 			ParkingPage.typeStartHour('9:00')
 			ParkingPage.startHour()
 			ParkingPage.typeEndDate('07/01/2020')

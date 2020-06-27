@@ -5,10 +5,11 @@ exports.config = {
   specs: [
      //'./Tests/valet-parking/valet-parking.js',
      //'./Tests/short-parking/short-parking.js'
+    //  /'./Tests/economy-parking/economy-parking.js'
   ],
   suites: {
-    ValetParkig: './Tests/valet-parking/valet-parking.js',
-    ShortParkig: './Tests/short-parking/short-parking.js',
+    //ValetParkig: './Tests/valet-parking/valet-parking.js',
+    //ShortParkig: './Tests/short-parking/short-parking.js',
     EconomyParkig: './Tests/economy-parking/economy-parking.js'
   },
   
