@@ -13,9 +13,48 @@ describe('Protractor Demo App', function () {
 	afterEach(function () {
 			jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
 	});
-	it('Parking Page', async (done) => {
-            ParkingPage.clickLoginLink()
-			browser.driver.sleep(1000)
+	it('Given as a user, When the user enters the date in the date field AND the user spends two hours in valet parking, THEN parking cost equals to $12'
+	, async (done) => {
+            ParkingPage.chooseParking()
+			ParkingPage.typeStartDate('07/01/2020')
+			ParkingPage.typeStartHour('9:00')
+			ParkingPage.startHour()
+			ParkingPage.typeEndDate('07/01/2020')
+			ParkingPage.typeEndHour('11:00')
+			ParkingPage.endHour()
+			ParkingPage.calculateClick()
+			ParkingPage.verifyCost('$ 12.00')
+
+
+			done()
+	});
+	it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+	, async (done) => {
+            ParkingPage.chooseParking()
+			ParkingPage.typeStartDate('07/01/2020')
+			ParkingPage.typeStartHour('9:00')
+			ParkingPage.startHour()
+			ParkingPage.typeEndDate('07/01/2020')
+			ParkingPage.typeEndHour('5:00')
+			ParkingPage.endHour()
+			ParkingPage.calculateClick()
+			ParkingPage.verifyCost('$ 0.00')
+
+
+			done()
+	});
+	it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+	, async (done) => {
+            ParkingPage.chooseParking()
+			ParkingPage.typeStartDate('07/01/2020')
+			ParkingPage.typeStartHour('12:00')
+			ParkingPage.startHour()
+			ParkingPage.typeEndDate('07/01/2020')
+			ParkingPage.typeEndHour('11:59')
+			ParkingPage.endHour()
+			ParkingPage.calculateClick()
+			ParkingPage.verifyCost('$ 18.00')
+
 
 			done()
 	});
