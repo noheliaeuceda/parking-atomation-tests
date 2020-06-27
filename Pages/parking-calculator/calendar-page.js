@@ -1,14 +1,19 @@
 var CalendarPage = function () {
 
 	//Locators
-	var startDate = element(by.linkText(''));
 	
 
 
 	//Functions
 	this.scrollDown = function (element) {
 		browser.actions().mouseMove(element).perform();
+    }
+
+    this.selectMonth = function (value) {
+        var startDate = element(by.css('select[name="MonthSelector"] > option:nth-of-type("'+value+'\")'));
+		startDate.click();
 	}
+
 	this.clickStartDate = function (value) {
         var startDate = element(by.linkText(value));
 		startDate.click().then(function () {
