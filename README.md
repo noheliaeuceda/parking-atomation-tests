@@ -17,6 +17,10 @@ _npm install -g protractor_
 
 ## Run the tests ⚙️
 
+_webdriver-manager update_
+
+_webdriver-manager start_
+
 _protractor conf.js_
 
 ### Analyze end-to-end 🔩
