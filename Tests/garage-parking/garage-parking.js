@@ -14,7 +14,7 @@ describe('Protractor Demo App', function () {
     afterEach(function () {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
-    it('Given as a user, When the user enters the date in the date field AND the user spends two hours in Economy parking, THEN parking cost equals to $4'
+    it('Given as a user, When the user enters the date in the date field AND the user spends two hours in surface parking, THEN parking cost equals to $4'
         , async (done) => {
             ParkingPage.chooseParking('Long-Garage')
             ParkingPage.selectStartDate()
@@ -35,7 +35,7 @@ describe('Protractor Demo App', function () {
 
             done()
         });
-    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in garage parking, THEN parking cost equals to $0'
         , async (done) => {
             ParkingPage.chooseParking('Long-Garage')
             ParkingPage.selectStartDate()
@@ -56,7 +56,7 @@ describe('Protractor Demo App', function () {
 
             done()
         });
-    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in garage parking, THEN parking cost equals to $72.0'
         , async (done) => {
             ParkingPage.chooseParking('Long-Garage')
             ParkingPage.selectStartDate()
@@ -77,7 +77,7 @@ describe('Protractor Demo App', function () {
 
             done()
         });
-        it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+        it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in garage parking, THEN parking cost equals to $14.00'
         , async (done) => {
             ParkingPage.chooseParking('Long-Garage')
             ParkingPage.selectStartDate()
@@ -94,6 +94,26 @@ describe('Protractor Demo App', function () {
             ParkingPage.endHour()
             ParkingPage.calculateClick()
             ParkingPage.verifyCost('$ 14.00')
+
+
+            done()
+        });
+        it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in garage parking, THEN parking cost equals to $12.00'
+        , async (done) => {
+            ParkingPage.chooseParking('Long-Garage')
+            ParkingPage.selectStartDate()
+            CalendarPage.clickMonth()
+            CalendarPage.selectMonth(6)
+            CalendarPage.clickStartDate(17)
+            ParkingPage.typeStartHour('5:00')
+            ParkingPage.selectEndDate()
+            CalendarPage.clickMonth()
+            CalendarPage.selectMonth(6)
+            CalendarPage.clickStartDate(17)
+            ParkingPage.typeEndHour('6:00')
+            ParkingPage.endHour()
+            ParkingPage.calculateClick()
+            ParkingPage.verifyCost('$ 12.00')
 
 
             done()

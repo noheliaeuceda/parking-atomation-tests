@@ -13,7 +13,7 @@ describe('Protractor Demo App', function () {
 	afterEach(function () {
 			jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
 	});
-	it('Given as a user, When the user enters the date in the date field AND the user spends two hours in short parking, THEN parking cost equals to $4'
+	it('Given as a user, When the user enters the date in the date field AND the user spends two hours in short parking, THEN parking cost equals to $5'
 	, async (done) => {
             ParkingPage.chooseParking('Short')
 			ParkingPage.typeStartDate('07/01/2020')
@@ -28,7 +28,7 @@ describe('Protractor Demo App', function () {
 
 			done()
 	});
-	it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+	it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in short parking, THEN parking cost equals to $0'
 	, async (done) => {
             ParkingPage.chooseParking('Short')
 			ParkingPage.typeStartDate('07/01/2020')
@@ -43,7 +43,7 @@ describe('Protractor Demo App', function () {
 
 			done()
 	});
-	it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+	it('Given as a user, When the user enters the date in the date field AND the user spends one day plus half hour in short parking, THEN parking cost equals to $25'
 	, async (done) => {
             ParkingPage.chooseParking('Short')
 			ParkingPage.typeStartDate('07/01/2020')
@@ -54,6 +54,21 @@ describe('Protractor Demo App', function () {
 			ParkingPage.endHour()
 			ParkingPage.calculateClick()
 			ParkingPage.verifyCost('$ 25.00')
+
+
+			done()
+    });
+    
+	it('Given as a user, When the user enters the date in the date field AND the user spends more than 24 maxium in short parking, THEN parking cost equals to $24'
+	, async (done) => {
+            ParkingPage.chooseParking('Short')
+			ParkingPage.typeStartDate('07/01/2020')
+			ParkingPage.typeStartHour('5:00')
+			ParkingPage.typeEndDate('07/01/2020')
+			ParkingPage.typeEndHour('5:30')
+			ParkingPage.endHour()
+			ParkingPage.calculateClick()
+			ParkingPage.verifyCost('$ 24.00')
 
 
 			done()

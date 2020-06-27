@@ -14,7 +14,7 @@ describe('Protractor Demo App', function () {
     afterEach(function () {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
-    it('Given as a user, When the user enters the date in the date field AND the user spends two hours in Economy parking, THEN parking cost equals to $4'
+    it('Given as a user, When the user enters the date in the date field AND the user spends two hours in Economy parking, THEN parking cost equals to $9'
         , async (done) => {
             ParkingPage.chooseParking('Economy')
             ParkingPage.selectStartDate()
@@ -37,7 +37,7 @@ describe('Protractor Demo App', function () {
 
             done()
         });
-    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in economy parking, THEN parking cost equals to $0'
         , async (done) => {
             ParkingPage.chooseParking('Economy')
             ParkingPage.selectStartDate()
@@ -58,7 +58,7 @@ describe('Protractor Demo App', function () {
 
             done()
         });
-    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
+    it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in economy parking, THEN parking cost equals to $54'
         , async (done) => {
             ParkingPage.chooseParking('Economy')
             ParkingPage.selectStartDate()
@@ -75,6 +75,26 @@ describe('Protractor Demo App', function () {
             ParkingPage.endHour()
             ParkingPage.calculateClick()
             ParkingPage.verifyCost('$ 54.00')
+
+
+            done()
+        });
+        it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in economy parking, THEN parking cost equals to $9'
+        , async (done) => {
+            ParkingPage.chooseParking('Economy')
+            ParkingPage.selectStartDate()
+            CalendarPage.clickMonth()
+            CalendarPage.selectMonth(6)
+            CalendarPage.clickStartDate(17)
+            ParkingPage.typeStartHour('5:00')
+            ParkingPage.selectEndDate()
+            CalendarPage.clickMonth()
+            CalendarPage.selectMonth(6)
+            CalendarPage.clickStartDate(17)
+            ParkingPage.typeEndHour('5:00')
+            ParkingPage.endHour()
+            ParkingPage.calculateClick()
+            ParkingPage.verifyCost('$ 9.00')
 
 
             done()
