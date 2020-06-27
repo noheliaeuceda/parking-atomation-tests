@@ -24,7 +24,7 @@ _protractor conf.js_
 _At the end of the test run you will see how many tests assert and how many failed_
 
 
-## Construido con 🛠️
+## Built in 🛠️
 
 _Selenium_
 _Protactor_
