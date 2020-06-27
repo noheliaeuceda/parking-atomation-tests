@@ -1,7 +1,6 @@
 var ParkingPage = function () {
 
 	//Locators
-	var selectParking = element(by.css('select#ParkingLot>option[value=\"Valet\"]'));
 	var startDate = element(by.id('StartingDate'));
 	var startCalendar = element(by.css('tr:nth-of-type(2) > td:nth-of-type(2) > a > img[alt="Pick a date"]'));
 	var startHour = element(by.id('StartingTime'));
@@ -19,7 +18,8 @@ var ParkingPage = function () {
 	this.scrollDown = function (element) {
 		browser.actions().mouseMove(element).perform();
 	}
-	this.chooseParking = function () {
+	this.chooseParking = function (value) {
+		var selectParking = element(by.css('select#ParkingLot>option[value=\"'+value+'\"]'));
 		selectParking.click();
 	}
 	this.typeStartDate = function (date) {

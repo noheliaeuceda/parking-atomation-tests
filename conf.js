@@ -4,9 +4,11 @@ exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: [
      //'./Tests/valet-parking/valet-parking.js',
+     //'./Tests/short-parking/short-parking.js'
   ],
   suites: {
-    AboutUs: './Tests/valet-parking/valet-parking.js'
+    ValetParkig: './Tests/valet-parking/valet-parking.js',
+    ShortParkig: './Tests/short-parking/short-parking.js'
   },
   
   multiCapabilities: [{

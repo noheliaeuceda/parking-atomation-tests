@@ -15,7 +15,7 @@ describe('Protractor Demo App', function () {
 	});
 	it('Given as a user, When the user enters the date in the date field AND the user spends two hours in valet parking, THEN parking cost equals to $12'
 	, async (done) => {
-            ParkingPage.chooseParking()
+            ParkingPage.chooseParking('Valet')
 			ParkingPage.typeStartDate('07/01/2020')
 			ParkingPage.typeStartHour('9:00')
 			ParkingPage.startHour()
@@ -30,7 +30,7 @@ describe('Protractor Demo App', function () {
 	});
 	it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
 	, async (done) => {
-            ParkingPage.chooseParking()
+            ParkingPage.chooseParking('Valet')
 			ParkingPage.typeStartDate('07/01/2020')
 			ParkingPage.typeStartHour('9:00')
 			ParkingPage.startHour()
@@ -45,7 +45,7 @@ describe('Protractor Demo App', function () {
 	});
 	it('Given as a user, When the user enters the date in the date field AND the user spends minus two hours in valet parking, THEN parking cost equals to $0'
 	, async (done) => {
-            ParkingPage.chooseParking()
+            ParkingPage.chooseParking('Valet')
 			ParkingPage.typeStartDate('07/01/2020')
 			ParkingPage.typeStartHour('12:00')
 			ParkingPage.startHour()
