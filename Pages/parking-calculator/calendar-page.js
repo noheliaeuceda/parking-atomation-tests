@@ -13,12 +13,12 @@ var CalendarPage = function () {
 	}
 
     this.selectMonth = function (value) {
-        var startDate = element(by.css('[name] option:nth-of-type('+value+')'));
+        var startDate = element(by.css('[name] option:nth-of-type(7)'));
 		startDate.click();
 	}
 
 	this.clickStartDate = function (value) {
-        var startDate = element(by.linkText(value));
+        var startDate = element(by.linkText(value.toString()));
 		startDate.click().then(function () {
             browser.getAllWindowHandles().then(function (handles) {
                 newWindowHandle = handles[0]; // this is your new window

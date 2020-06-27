@@ -34,6 +34,14 @@ var ParkingPage = function () {
             });
         });
 	}
+	this.selectEndDate = function () {
+		endCalendar.click().then(function () {
+            browser.getAllWindowHandles().then(function (handles) {
+                newWindowHandle = handles[1]; // this is your new window
+                browser.switchTo().window(newWindowHandle);
+            });
+        });
+	}
 	this.typeStartHour = function (hour) {
 		startHour.clear();
 		startHour.sendKeys(hour);
