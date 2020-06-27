@@ -1,19 +1,29 @@
+
+
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['todo-spec.js'],
+  specs: [
+     //'./Tests/valet-parking/valet-parking.js',
+  ],
   suites: {
-    LoginOC: ['./Tests/LoginOC/Login_LCX_HP.js'],
+    AboutUs: './Tests/valet-parking/valet-parking.js'
   },
-  onPrepare: () => {
-  },
-  afterLaunch: () => {
-
-    return new Promise(() => true)
-  },
+  
   multiCapabilities: [{
     browserName: 'chrome' , 
-    /*chromeOptions: {
-      args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
-    }*/ 
+    trustAllSSLCertificates: true,
+    acceptInsecureCerts: true,
+    ACCEPT_SSL_CERTS: true,
+    chromeOptions: {
+      args: [ 
+        //'incognito',
+         "--disable-gpu",
+      //'--headless',
+       "--window-size=1600,900" ]
+    }
   }],
-};
+  jasmineNodeOpts: {
+    showColors: true, // Use colors in the command line report.
+  }
+  
+}

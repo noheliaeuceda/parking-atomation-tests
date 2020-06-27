@@ -1,4 +1,4 @@
-var ParkingPage = require('../../Pages/ParkingPage');
+var ParkingPage = require('../../Pages/parking-calculator/parking-page');
 describe('Protractor Demo App', function () {
 	var originalTimeout;
 
@@ -13,7 +13,7 @@ describe('Protractor Demo App', function () {
 	afterEach(function () {
 			jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
 	});
-	it('384: Login success', async (done) => {
+	it('Parking Page', async (done) => {
             ParkingPage.clickLoginLink()
 			browser.driver.sleep(1000)
 
